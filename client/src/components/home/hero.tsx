@@ -6,37 +6,62 @@ import { scrollToElement } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section id="home" className="hero-section bg-gradient-royal relative flex flex-col justify-center items-center text-center pt-20 min-h-[85vh]">
-      <div className="absolute inset-0 bg-black opacity-20"></div>
+    <section id="home" className="hero-section bg-gradient-luxury relative flex flex-col justify-center items-center text-center pt-20 min-h-[100vh] overflow-hidden">
+      <div className="absolute inset-0 bg-black opacity-30"></div>
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-accent/20 to-transparent rounded-full blur-3xl floating-animation"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-secondary/20 to-transparent rounded-full blur-3xl floating-animation" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-primary/20 to-transparent rounded-full blur-3xl floating-animation" style={{animationDelay: '4s'}}></div>
+      </div>
       
       <Container className="z-10 py-24">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="shimmer-effect"
         >
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold mb-4 text-white text-shadow">Hotel Royal Phoenix</h1>
-          <div className="gold-separator"></div>
-          <p className="font-cormorant text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto text-shadow">
+          <motion.h1 
+            className="font-playfair text-5xl md:text-7xl font-bold mb-6 text-white text-shadow-gold"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          >
+            Hotel Royal Phoenix
+          </motion.h1>
+          <div className="gold-separator glow-effect"></div>
+          <motion.p 
+            className="font-cormorant text-2xl md:text-3xl text-accent mb-10 max-w-3xl mx-auto text-shadow font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          >
             Luxury & Brilliance Redefined<br />
-            Experience the height of sophistication in Dubai's iconic skyline
-          </p>
+            <span className="text-white text-xl">Experience the height of sophistication in Dubai's iconic skyline</span>
+          </motion.p>
           
-          <div className="space-x-4">
+          <motion.div 
+            className="flex flex-col md:flex-row justify-center gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
             <Button 
               onClick={() => scrollToElement("booking")}
-              className="gold-btn bg-accent text-white px-8 py-3 rounded shadow hover:shadow-lg"
+              className="gold-btn text-black font-semibold px-10 py-4 text-lg rounded-lg glow-effect"
             >
               Book Your Stay
             </Button>
             <Button 
               variant="outline"
               onClick={() => scrollToElement("tour")}
-              className="border border-white text-white px-8 py-3 rounded hover:bg-white hover:text-primary transition-colors"
+              className="border-2 border-accent text-accent px-10 py-4 text-lg rounded-lg hover:bg-accent hover:text-black transition-all duration-300 backdrop-blur-sm"
             >
               Virtual Tour
             </Button>
-          </div>
+          </motion.div>
         </motion.div>
       </Container>
       
