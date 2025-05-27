@@ -49,18 +49,19 @@ export function Rooms() {
   };
 
   return (
-    <section id="rooms" className="section py-20 bg-gray-50">
+    <section id="rooms" className="section py-24 bg-gradient-to-b from-muted to-background">
       <Container>
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
+            className="shimmer-effect"
           >
-            <h2 className="font-playfair text-4xl font-bold text-primary mb-4">Rooms & Suites</h2>
-            <div className="gold-separator"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <h2 className="font-playfair text-5xl font-bold text-accent mb-6 text-shadow-gold">Rooms & Suites</h2>
+            <div className="gold-separator glow-effect"></div>
+            <p className="text-muted-foreground max-w-4xl mx-auto text-lg leading-relaxed">
               Immerse yourself in the epitome of luxury with our meticulously designed accommodations.
               Each room and suite offers a unique blend of comfort, elegance, and modern amenities.
             </p>
@@ -75,41 +76,40 @@ export function Rooms() {
           viewport={{ once: true }}
         >
           {rooms.map((room) => (
-            <motion.div key={room.id} className="room-card bg-white rounded-lg overflow-hidden shadow-lg" variants={item}>
-              <div className="image-container h-64 relative">
+            <motion.div key={room.id} className="room-card luxury-card rounded-xl overflow-hidden shadow-2xl glow-effect" variants={item}>
+              <div className="image-container h-72 relative">
                 <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
                 <div className="overlay">
-                  <Button className="gold-btn bg-accent text-white px-6 py-2 rounded">View Details</Button>
+                  <Button className="gold-btn text-black font-semibold px-8 py-3 rounded-lg">View Details</Button>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-playfair text-xl font-bold text-primary">{room.name}</h3>
-                  <span className="text-accent font-semibold">${room.price} <span className="text-gray-500 text-sm">/night</span></span>
+              <div className="p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="font-playfair text-2xl font-bold text-accent">{room.name}</h3>
+                  <span className="text-accent font-bold text-xl">${room.price} <span className="text-muted-foreground text-base">/night</span></span>
                 </div>
-                <p className="text-gray-600 mb-4">{room.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <p className="text-muted-foreground mb-6 leading-relaxed">{room.description}</p>
+                <div className="flex flex-wrap gap-3 mb-8">
                   {room.features.map((feature, index) => (
-                    <Badge key={index} variant="outline" className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">
+                    <Badge key={index} variant="outline" className="bg-accent/10 text-accent border-accent/30 px-4 py-2 rounded-full font-medium">
                       {feature}
                     </Badge>
                   ))}
                 </div>
                 <Button 
                   onClick={() => scrollToElement("booking")}
-                  variant="outline" 
-                  className="text-primary hover:text-accent transition-colors flex items-center justify-center border border-primary hover:border-accent rounded py-2 w-full"
+                  className="gold-btn text-black font-semibold flex items-center justify-center rounded-lg py-3 w-full text-lg"
                 >
-                  Book Now <ArrowRight className="ml-2" size={16} />
+                  Book Now <ArrowRight className="ml-2" size={18} />
                 </Button>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <Button 
-            className="gold-btn bg-accent text-white px-8 py-3 rounded"
+            className="gold-btn text-black font-semibold px-12 py-4 text-lg rounded-lg glow-effect"
           >
             View All Accommodations
           </Button>

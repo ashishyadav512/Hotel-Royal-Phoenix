@@ -62,18 +62,19 @@ export function Packages() {
   };
 
   return (
-    <section id="packages" className="section py-20 bg-white">
+    <section id="packages" className="section py-24 bg-gradient-to-b from-background to-muted">
       <Container>
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
+            className="shimmer-effect"
           >
-            <h2 className="font-playfair text-4xl font-bold text-primary mb-4">Stay Packages</h2>
-            <div className="gold-separator"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <h2 className="font-playfair text-5xl font-bold text-accent mb-6 text-shadow-gold">Stay Packages</h2>
+            <div className="gold-separator glow-effect"></div>
+            <p className="text-muted-foreground max-w-4xl mx-auto text-lg leading-relaxed">
               Enjoy our carefully curated packages designed to provide an unforgettable experience
               during your stay at Hotel Royal Phoenix.
             </p>
@@ -90,29 +91,29 @@ export function Packages() {
           {packages.map((pkg) => (
             <motion.div 
               key={pkg.id} 
-              className="package-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100"
+              className="package-card luxury-card rounded-xl overflow-hidden shadow-2xl glow-effect"
               variants={item}
             >
-              <div className="image-container h-48 relative">
+              <div className="image-container h-56 relative">
                 <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" />
                 <div className="overlay">
-                  <span className="text-white font-playfair text-xl">Explore Package</span>
+                  <span className="text-white font-playfair text-2xl text-shadow-gold">Explore Package</span>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-playfair text-xl font-bold text-primary mb-3">{pkg.name}</h3>
-                <p className="text-gray-600 mb-4">{pkg.description}</p>
-                <ul className="text-gray-600 mb-6 space-y-2">
+              <div className="p-8">
+                <h3 className="font-playfair text-2xl font-bold text-accent mb-4">{pkg.name}</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{pkg.description}</p>
+                <ul className="text-muted-foreground mb-8 space-y-3">
                   {pkg.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
-                      <Check className="text-accent mr-2" size={16} />
+                      <Check className="text-accent mr-3 glow-effect" size={18} />
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <div className="flex justify-between items-center">
-                  <span className="text-accent font-semibold">From ${pkg.price}</span>
-                  <Button className="gold-btn bg-accent text-white px-4 py-2 rounded">Book Now</Button>
+                  <span className="text-accent font-bold text-xl">From ${pkg.price}</span>
+                  <Button className="gold-btn text-black font-semibold px-6 py-3 rounded-lg">Book Now</Button>
                 </div>
               </div>
             </motion.div>

@@ -36,11 +36,11 @@ export function Navbar() {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 bg-gradient-royal shadow-lg transition-all duration-300 ${isScrolled ? 'py-2' : 'py-3'}`}>
+    <nav className={`fixed top-0 w-full z-50 bg-gradient-luxury backdrop-blur-md border-b border-accent/20 shadow-2xl transition-all duration-500 ${isScrolled ? 'py-2' : 'py-4'}`}>
       <Container>
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-playfair text-white font-semibold">Hotel Royal Phoenix</span>
+            <span className="text-2xl font-playfair text-accent font-bold text-shadow-gold">Hotel Royal Phoenix</span>
           </Link>
           
           <div className="hidden md:flex space-x-8">
